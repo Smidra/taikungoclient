@@ -32,6 +32,24 @@ openapi-generator-cli generate -i ./swagger-showback.json \
 ### Workflow
 The repository will be configured to do the generation automatically with GitHub Actions.
 
+### Enviroment variables
+The recognised environment variables are:
+- TAIKUN_API_HOST
+  - Chosen endpoint of Taikun API
+- TAIKUN_AUTH_MODE 
+  - Define the authentication mode you wish to use
+    - **default** (same as empty, use email+pass)
+    - **token** (using user tokens generated from Taikun)
+    - **keycloak**
+    - **autoscaler**
+- TAIKUN_EMAIL
+  - Used only in **default** authmode
+- TAIKUN_PASSWORD
+  - Used only in **default** authmode
+- TAIKUN_ACCESS_KEY
+  - Used in all other authmodes
+- TAIKUN_SECRET_KEY
+  - Used in all other authmodes
 
 ### Usage
 #TBA

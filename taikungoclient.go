@@ -219,7 +219,7 @@ func NewClient() *Client {
 		return newClientFromCredentials(email, password, "", "", "", apiHost) // Create and return the client
 	}
 
-	// Else try to use AccessKey + Secret key
+	// Any other mode was chosen. Try to use AccessKey + Secret key.
 	accessKey := os.Getenv(TaikunAccessKey)
 	secretKey := os.Getenv(TaikunSecretKey)
 	if accessKey == "" || secretKey == "" {

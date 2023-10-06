@@ -11,9 +11,22 @@ This process is done twice (for the Taikun WebAPI and Taikun Showback API).
 
 Manually it would be done like this:
 ```bash
-openapi-generator-cli generate -i ./swagger-taikun.json -g go --additional-properties=packageName=taikuncore  --additional-properties=enumClassPrefix=true -o ./client
-openapi-generator-cli generate -i ./swagger-showback.json -g go --additional-properties=packageName=taikunshowback  --additional-properties=enumClassPrefix=true -o ./showbackclient
-```
+# Generate client
+openapi-generator-cli generate -i ./swagger-taikun.json \
+-g go \
+--additional-properties=packageName=taikuncore \
+--additional-properties=enumClassPrefix=true \
+--git-user-id=Smidra \
+--git-repo-id=taikungoclient/client \
+-o ./client
+
+openapi-generator-cli generate -i ./swagger-showback.json \
+-g go \
+--additional-properties=packageName=taikunshowback  \
+--additional-properties=enumClassPrefix=true \
+--git-user-id=Smidra \
+--git-repo-id=taikungoclient/showbackclient \
+-o ./showbackclient```
 
 ### Workflow
 The repository will be configured to do the generation automatically with GitHub Actions.

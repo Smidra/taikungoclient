@@ -26,7 +26,8 @@ openapi-generator-cli generate -i ./swagger-showback.json \
 --additional-properties=enumClassPrefix=true \
 --git-user-id=Smidra \
 --git-repo-id=taikungoclient/showbackclient \
--o ./showbackclient```
+-o ./showbackclient
+```
 
 ### Workflow
 The repository will be configured to do the generation automatically with GitHub Actions.

@@ -62,27 +62,27 @@ type Client struct {
 	authMode  string
 }
 
-// -- Transport wrapper
+// Transport wrapper
 func (c *customTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 	// This is not a /auth/login or /auth/refresh request
 	if req.URL.Path != "/api/v1/auth/login" && req.URL.Path != "/api/v1/auth/refresh" {
-		if c.Client.token == "" { // We do not have a token.
+		if c.Client.token == "" { // We do not have a token, get a lock
 			c.mu.Lock()
 			defer c.mu.Unlock()
-
 			if c.Client.token == "" {
+
 				var loginCmd *taikuncore.LoginCommand
-				// keycloak
-				// default
-				// token
-				// autoscaling
-				if c.Client.authMode != "" || c.Client.authMode == "default" {
+				if c.Client.authMode != "" {
+					// I have an authMode specified (eg. "default" or "keycloak")
+					// Use for modes: keycloak, default, token, autoscaling
 					loginCmd = &taikuncore.LoginCommand{
 						SecretKey: *taikuncore.NewNullableString(&c.Client.secretKey),
 						AccessKey: *taikuncore.NewNullableString(&c.Client.accessKey),
 						Mode:      *taikuncore.NewNullableString(&c.Client.authMode),
 					}
 				} else {
+					// I do not have and authMode specified
+					// Use authentication with email + password
 					loginCmd = &taikuncore.LoginCommand{
 						Email:    *taikuncore.NewNullableString(&c.Client.email),
 						Password: *taikuncore.NewNullableString(&c.Client.password),
@@ -94,6 +94,7 @@ func (c *customTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 				}
 				c.Client.token = *result.Token.Get()
 				c.Client.refreshToken = *result.RefreshToken.Get()
+
 			}
 		} else { // We do have a token
 			if c.Client.token != "" && c.hasTokenExpired() {

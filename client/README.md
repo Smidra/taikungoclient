@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import taikuncore "github.com/Smidra/taikungoclient"
+import taikuncore "github.com/Smidra/taikungoclient/client"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

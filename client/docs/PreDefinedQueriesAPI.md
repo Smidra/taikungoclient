@@ -27,7 +27,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient"
+    openapiclient "github.com/Smidra/taikungoclient/client"
 )
 
 func main() {
@@ -89,7 +89,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient"
+    openapiclient "github.com/Smidra/taikungoclient/client"
 )
 
 func main() {
@@ -155,7 +155,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient"
+    openapiclient "github.com/Smidra/taikungoclient/client"
 )
 
 func main() {
@@ -223,7 +223,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient"
+    openapiclient "github.com/Smidra/taikungoclient/client"
 )
 
 func main() {
@@ -291,7 +291,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient"
+    openapiclient "github.com/Smidra/taikungoclient/client"
 )
 
 func main() {

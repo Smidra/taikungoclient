@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name            | Type | Description | Notes|
-|-----------------| ------------- | ------------- | -------------|
-| **Data**        | Pointer to [**[]PvcDto**](PvcDto.md) |  | [optional] | 
-|  **TotalCount** | Pointer to **int32** |  | [optional]| 
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Data** | Pointer to [**[]PvcDto**](PvcDto.md) |  | [optional] 
+**TotalCount** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 

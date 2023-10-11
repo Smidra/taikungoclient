@@ -5,7 +5,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"strings"
@@ -90,7 +90,7 @@ func (c *customTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 				}
 				result, body, err := c.Client.Client.AuthManagementAPI.AuthLogin(req.Context()).LoginCommand(*loginCmd).Execute()
 				if err != nil {
-					return nil, createError(body, err)
+					return nil, CreateError(body, err)
 				}
 				c.Client.token = *result.Token.Get()
 				c.Client.refreshToken = *result.RefreshToken.Get()
@@ -103,7 +103,7 @@ func (c *customTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 					Token:        *taikuncore.NewNullableString(&c.Client.token),
 				}).Execute()
 				if err != nil {
-					return nil, createError(body, err)
+					return nil, CreateError(body, err)
 				}
 				c.Client.token = *result.Token.Get()
 				c.Client.refreshToken = *result.RefreshToken.Get()
@@ -143,24 +143,31 @@ func (e *taikunError) Error() string {
 	return fmt.Sprintf("Taikun Error: %s (HTTP %d)", e.Message, e.HTTPStatusCode)
 }
 
-// createError is a helper function to convert an unsuccessful HTTP response to a taikunError struct.
-func createError(resp *http.Response, err error) error {
+// CreateError is a helper function to convert an unsuccessful HTTP response to a taikunError struct.
+// Function is exported because it is used by the Terraform taikun provider and Taikun CLI to show errors.
+func CreateError(resp *http.Response, err error) error {
 	if err == nil || resp == nil {
 		return err
 	}
-	body, err2 := ioutil.ReadAll(resp.Body)
+
+	// Decode into map for simple pretty printing - disabled because of background compatibility
+	//var readMap map[string]interface{}
+	//err2 := json.NewDecoder(resp.Body).Decode(&readMap)
+	// Read into byte array
+	body, err2 := io.ReadAll(resp.Body)
 	if err2 != nil {
-		return err
+		// Reading/decoding failed. Give the user at least the deformed response.
+		return fmt.Errorf("Reply in unexpected format. Pasting the raw error: %v %v", resp.Body, err2)
 	}
 	return &taikunError{
 		HTTPStatusCode: resp.StatusCode,
-		Message:        string(body),
+		Message:        fmt.Sprintf("%s", string(body)),
 	}
 }
 
-// newClientFromCredentials is a helper function not intended to be used by the user.
+// NewClientFromCredentials is a helper function not intended to be used by the user.
 // It returns a client based on the authMode and provided credentials
-func newClientFromCredentials(email string, password string, accessKey string, secretKey string, authMode string, apiHost string) *Client {
+func NewClientFromCredentials(email string, password string, accessKey string, secretKey string, authMode string, apiHost string) *Client {
 
 	// Create a configuration object for the Taikun Web API
 	cfg := taikuncore.NewConfiguration()
@@ -216,7 +223,7 @@ func NewClient() *Client {
 		if email == "" || password == "" {
 			panic(fmt.Errorf("Please set your Taikun credentials. Password or Email was empty."))
 		}
-		return newClientFromCredentials(email, password, "", "", "", apiHost) // Create and return the client
+		return NewClientFromCredentials(email, password, "", "", "", apiHost) // Create and return the client
 	}
 
 	// Any other mode was chosen. Try to use AccessKey + Secret key.
@@ -225,5 +232,5 @@ func NewClient() *Client {
 	if accessKey == "" || secretKey == "" {
 		panic(fmt.Errorf("Please set your Taikun credentials. AccessKey or SecretKey was empty."))
 	}
-	return newClientFromCredentials("", "", accessKey, secretKey, taikunAuthMode, apiHost) // Create and return the client
+	return NewClientFromCredentials("", "", accessKey, secretKey, taikunAuthMode, apiHost) // Create and return the client
 }

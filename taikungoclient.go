@@ -150,7 +150,7 @@ func CreateError(resp *http.Response, err error) error {
 		return err
 	}
 
-	// Decode into map for simple pretty printing - disabled because of background compatibility
+	// Decode into map for simple pretty printing (readMap["detail"]) - disabled because of background compatibility
 	//var readMap map[string]interface{}
 	//err2 := json.NewDecoder(resp.Body).Decode(&readMap)
 	// Read into byte array
@@ -221,7 +221,9 @@ func NewClient() *Client {
 		email := os.Getenv(TaikunEmailEnvVar)
 		password := os.Getenv(TaikunPasswordEnvVar)
 		if email == "" || password == "" {
-			panic(fmt.Errorf("Please set your Taikun credentials. Password or Email was empty."))
+			fmt.Errorf("Please set your Taikun credentials. Password or Email was empty.")
+			os.Exit(1)
+			//panic(fmt.Errorf("Please set your Taikun credentials. Password or Email was empty."))
 		}
 		return NewClientFromCredentials(email, password, "", "", "", apiHost) // Create and return the client
 	}
@@ -230,7 +232,9 @@ func NewClient() *Client {
 	accessKey := os.Getenv(TaikunAccessKey)
 	secretKey := os.Getenv(TaikunSecretKey)
 	if accessKey == "" || secretKey == "" {
-		panic(fmt.Errorf("Please set your Taikun credentials. AccessKey or SecretKey was empty."))
+		// panic(fmt.Errorf("Please set your Taikun credentials. AccessKey or SecretKey was empty."))
+		fmt.Errorf("Please set your Taikun credentials. AccessKey or SecretKey was empty.")
+		os.Exit(1)
 	}
 	return NewClientFromCredentials("", "", accessKey, secretKey, taikunAuthMode, apiHost) // Create and return the client
 }

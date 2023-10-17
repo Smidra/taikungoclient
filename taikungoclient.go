@@ -221,7 +221,7 @@ func NewClient() *Client {
 		email := os.Getenv(TaikunEmailEnvVar)
 		password := os.Getenv(TaikunPasswordEnvVar)
 		if email == "" || password == "" {
-			fmt.Errorf("Please set your Taikun credentials. Password or Email was empty.")
+			fmt.Println("Please set your Taikun credentials. Password or Email was empty.")
 			os.Exit(1)
 			//panic(fmt.Errorf("Please set your Taikun credentials. Password or Email was empty."))
 		}
@@ -233,7 +233,7 @@ func NewClient() *Client {
 	secretKey := os.Getenv(TaikunSecretKey)
 	if accessKey == "" || secretKey == "" {
 		// panic(fmt.Errorf("Please set your Taikun credentials. AccessKey or SecretKey was empty."))
-		fmt.Errorf("Please set your Taikun credentials. AccessKey or SecretKey was empty.")
+		fmt.Println("Please set your Taikun credentials. AccessKey or SecretKey was empty.")
 		os.Exit(1)
 	}
 	return NewClientFromCredentials("", "", accessKey, secretKey, taikunAuthMode, apiHost) // Create and return the client

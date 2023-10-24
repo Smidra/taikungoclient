@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Compute** | Pointer to [**OpenstackComputeQuotaDto**](OpenstackComputeQuotaDto.md) |  | [optional] 
 **Volume** | Pointer to [**OpenstackVolumeQuotaDto**](OpenstackVolumeQuotaDto.md) |  | [optional] 
 **Network** | Pointer to [**OpenstackNetworkDto**](OpenstackNetworkDto.md) |  | [optional] 
+**IsInfra** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetNetwork sets Network field to given value.
 `func (o *OpenstackQuotaList) HasNetwork() bool`
 
 HasNetwork returns a boolean if a field has been set.
+
+### GetIsInfra
+
+`func (o *OpenstackQuotaList) GetIsInfra() bool`
+
+GetIsInfra returns the IsInfra field if non-nil, zero value otherwise.
+
+### GetIsInfraOk
+
+`func (o *OpenstackQuotaList) GetIsInfraOk() (*bool, bool)`
+
+GetIsInfraOk returns a tuple with the IsInfra field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsInfra
+
+`func (o *OpenstackQuotaList) SetIsInfra(v bool)`
+
+SetIsInfra sets IsInfra field to given value.
+
+### HasIsInfra
+
+`func (o *OpenstackQuotaList) HasIsInfra() bool`
+
+HasIsInfra returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

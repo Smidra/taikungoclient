@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **IsReadOnly** | Pointer to **bool** |  | [optional] 
 **HasRepo** | Pointer to **bool** |  | [optional] 
 **DemoModeEnabled** | Pointer to **bool** |  | [optional] 
+**IsNewOrganization** | Pointer to **bool** |  | [optional] 
 **LastLoginAt** | Pointer to **NullableString** |  | [optional] 
 **BoundProjects** | Pointer to [**[]ProjectDto**](ProjectDto.md) |  | [optional] 
 **Partner** | Pointer to [**PartnerDetailsForUserDto**](PartnerDetailsForUserDto.md) |  | [optional] 
@@ -632,6 +633,31 @@ SetDemoModeEnabled sets DemoModeEnabled field to given value.
 `func (o *UserForListDto) HasDemoModeEnabled() bool`
 
 HasDemoModeEnabled returns a boolean if a field has been set.
+
+### GetIsNewOrganization
+
+`func (o *UserForListDto) GetIsNewOrganization() bool`
+
+GetIsNewOrganization returns the IsNewOrganization field if non-nil, zero value otherwise.
+
+### GetIsNewOrganizationOk
+
+`func (o *UserForListDto) GetIsNewOrganizationOk() (*bool, bool)`
+
+GetIsNewOrganizationOk returns a tuple with the IsNewOrganization field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNewOrganization
+
+`func (o *UserForListDto) SetIsNewOrganization(v bool)`
+
+SetIsNewOrganization sets IsNewOrganization field to given value.
+
+### HasIsNewOrganization
+
+`func (o *UserForListDto) HasIsNewOrganization() bool`
+
+HasIsNewOrganization returns a boolean if a field has been set.
 
 ### GetLastLoginAt
 

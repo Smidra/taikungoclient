@@ -34,7 +34,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -96,7 +96,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -158,7 +158,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -222,7 +222,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -288,7 +288,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -352,7 +352,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -411,7 +411,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -475,7 +475,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 ## OrganizationsOrganizationList
 
-> []CommonDropdownDto OrganizationsOrganizationList(ctx).PartnerId(partnerId).Search(search).Execute()
+> []OrganizationDropdownDto OrganizationsOrganizationList(ctx).PartnerId(partnerId).Search(search).IsInfra(isInfra).Execute()
 
 Retrieve organizations
 
@@ -551,21 +551,22 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
     partnerId := int32(56) // int32 |  (optional)
     search := "search_example" // string |  (optional)
+    isInfra := true // bool |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OrganizationsAPI.OrganizationsOrganizationList(context.Background()).PartnerId(partnerId).Search(search).Execute()
+    resp, r, err := apiClient.OrganizationsAPI.OrganizationsOrganizationList(context.Background()).PartnerId(partnerId).Search(search).IsInfra(isInfra).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.OrganizationsOrganizationList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `OrganizationsOrganizationList`: []CommonDropdownDto
+    // response from `OrganizationsOrganizationList`: []OrganizationDropdownDto
     fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.OrganizationsOrganizationList`: %v\n", resp)
 }
 ```
@@ -583,10 +584,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **partnerId** | **int32** |  | 
  **search** | **string** |  | 
+ **isInfra** | **bool** |  | 
 
 ### Return type
 
-[**[]CommonDropdownDto**](CommonDropdownDto.md)
+[**[]OrganizationDropdownDto**](OrganizationDropdownDto.md)
 
 ### Authorization
 
@@ -617,7 +619,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -679,7 +681,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -741,7 +743,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **SubscriptionId** | Pointer to **NullableString** |  | [optional] 
 **BillingStartDate** | Pointer to **NullableTime** |  | [optional] 
+**Yearly** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -184,6 +185,31 @@ HasBillingStartDate returns a boolean if a field has been set.
 `func (o *InfraOrganizationsListDto) UnsetBillingStartDate()`
 
 UnsetBillingStartDate ensures that no value is present for BillingStartDate, not even an explicit nil
+### GetYearly
+
+`func (o *InfraOrganizationsListDto) GetYearly() bool`
+
+GetYearly returns the Yearly field if non-nil, zero value otherwise.
+
+### GetYearlyOk
+
+`func (o *InfraOrganizationsListDto) GetYearlyOk() (*bool, bool)`
+
+GetYearlyOk returns a tuple with the Yearly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYearly
+
+`func (o *InfraOrganizationsListDto) SetYearly(v bool)`
+
+SetYearly sets Yearly field to given value.
+
+### HasYearly
+
+`func (o *InfraOrganizationsListDto) HasYearly() bool`
+
+HasYearly returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

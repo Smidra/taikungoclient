@@ -4,10 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrganizationId** | Pointer to **int32** |  | [optional] 
-**OrganizationName** | Pointer to **NullableString** |  | [optional] 
-**StartDate** | Pointer to **time.Time** |  | [optional] 
-**EndDate** | Pointer to **NullableTime** |  | [optional] 
+**InfraProductId** | Pointer to **int32** |  | [optional] 
+**InfraProductName** | Pointer to **NullableString** |  | [optional] 
+**Intervals** | Pointer to [**[]DateInterval**](DateInterval.md) |  | [optional] 
 **TotalPrice** | Pointer to **float64** |  | [optional] 
 
 ## Methods
@@ -29,126 +28,101 @@ NewInfraBillingSummaryDtoWithDefaults instantiates a new InfraBillingSummaryDto 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetOrganizationId
+### GetInfraProductId
 
-`func (o *InfraBillingSummaryDto) GetOrganizationId() int32`
+`func (o *InfraBillingSummaryDto) GetInfraProductId() int32`
 
-GetOrganizationId returns the OrganizationId field if non-nil, zero value otherwise.
+GetInfraProductId returns the InfraProductId field if non-nil, zero value otherwise.
 
-### GetOrganizationIdOk
+### GetInfraProductIdOk
 
-`func (o *InfraBillingSummaryDto) GetOrganizationIdOk() (*int32, bool)`
+`func (o *InfraBillingSummaryDto) GetInfraProductIdOk() (*int32, bool)`
 
-GetOrganizationIdOk returns a tuple with the OrganizationId field if it's non-nil, zero value otherwise
+GetInfraProductIdOk returns a tuple with the InfraProductId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationId
+### SetInfraProductId
 
-`func (o *InfraBillingSummaryDto) SetOrganizationId(v int32)`
+`func (o *InfraBillingSummaryDto) SetInfraProductId(v int32)`
 
-SetOrganizationId sets OrganizationId field to given value.
+SetInfraProductId sets InfraProductId field to given value.
 
-### HasOrganizationId
+### HasInfraProductId
 
-`func (o *InfraBillingSummaryDto) HasOrganizationId() bool`
+`func (o *InfraBillingSummaryDto) HasInfraProductId() bool`
 
-HasOrganizationId returns a boolean if a field has been set.
+HasInfraProductId returns a boolean if a field has been set.
 
-### GetOrganizationName
+### GetInfraProductName
 
-`func (o *InfraBillingSummaryDto) GetOrganizationName() string`
+`func (o *InfraBillingSummaryDto) GetInfraProductName() string`
 
-GetOrganizationName returns the OrganizationName field if non-nil, zero value otherwise.
+GetInfraProductName returns the InfraProductName field if non-nil, zero value otherwise.
 
-### GetOrganizationNameOk
+### GetInfraProductNameOk
 
-`func (o *InfraBillingSummaryDto) GetOrganizationNameOk() (*string, bool)`
+`func (o *InfraBillingSummaryDto) GetInfraProductNameOk() (*string, bool)`
 
-GetOrganizationNameOk returns a tuple with the OrganizationName field if it's non-nil, zero value otherwise
+GetInfraProductNameOk returns a tuple with the InfraProductName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationName
+### SetInfraProductName
 
-`func (o *InfraBillingSummaryDto) SetOrganizationName(v string)`
+`func (o *InfraBillingSummaryDto) SetInfraProductName(v string)`
 
-SetOrganizationName sets OrganizationName field to given value.
+SetInfraProductName sets InfraProductName field to given value.
 
-### HasOrganizationName
+### HasInfraProductName
 
-`func (o *InfraBillingSummaryDto) HasOrganizationName() bool`
+`func (o *InfraBillingSummaryDto) HasInfraProductName() bool`
 
-HasOrganizationName returns a boolean if a field has been set.
+HasInfraProductName returns a boolean if a field has been set.
 
-### SetOrganizationNameNil
+### SetInfraProductNameNil
 
-`func (o *InfraBillingSummaryDto) SetOrganizationNameNil(b bool)`
+`func (o *InfraBillingSummaryDto) SetInfraProductNameNil(b bool)`
 
- SetOrganizationNameNil sets the value for OrganizationName to be an explicit nil
+ SetInfraProductNameNil sets the value for InfraProductName to be an explicit nil
 
-### UnsetOrganizationName
-`func (o *InfraBillingSummaryDto) UnsetOrganizationName()`
+### UnsetInfraProductName
+`func (o *InfraBillingSummaryDto) UnsetInfraProductName()`
 
-UnsetOrganizationName ensures that no value is present for OrganizationName, not even an explicit nil
-### GetStartDate
+UnsetInfraProductName ensures that no value is present for InfraProductName, not even an explicit nil
+### GetIntervals
 
-`func (o *InfraBillingSummaryDto) GetStartDate() time.Time`
+`func (o *InfraBillingSummaryDto) GetIntervals() []DateInterval`
 
-GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+GetIntervals returns the Intervals field if non-nil, zero value otherwise.
 
-### GetStartDateOk
+### GetIntervalsOk
 
-`func (o *InfraBillingSummaryDto) GetStartDateOk() (*time.Time, bool)`
+`func (o *InfraBillingSummaryDto) GetIntervalsOk() (*[]DateInterval, bool)`
 
-GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+GetIntervalsOk returns a tuple with the Intervals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStartDate
+### SetIntervals
 
-`func (o *InfraBillingSummaryDto) SetStartDate(v time.Time)`
+`func (o *InfraBillingSummaryDto) SetIntervals(v []DateInterval)`
 
-SetStartDate sets StartDate field to given value.
+SetIntervals sets Intervals field to given value.
 
-### HasStartDate
+### HasIntervals
 
-`func (o *InfraBillingSummaryDto) HasStartDate() bool`
+`func (o *InfraBillingSummaryDto) HasIntervals() bool`
 
-HasStartDate returns a boolean if a field has been set.
+HasIntervals returns a boolean if a field has been set.
 
-### GetEndDate
+### SetIntervalsNil
 
-`func (o *InfraBillingSummaryDto) GetEndDate() time.Time`
+`func (o *InfraBillingSummaryDto) SetIntervalsNil(b bool)`
 
-GetEndDate returns the EndDate field if non-nil, zero value otherwise.
+ SetIntervalsNil sets the value for Intervals to be an explicit nil
 
-### GetEndDateOk
+### UnsetIntervals
+`func (o *InfraBillingSummaryDto) UnsetIntervals()`
 
-`func (o *InfraBillingSummaryDto) GetEndDateOk() (*time.Time, bool)`
-
-GetEndDateOk returns a tuple with the EndDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEndDate
-
-`func (o *InfraBillingSummaryDto) SetEndDate(v time.Time)`
-
-SetEndDate sets EndDate field to given value.
-
-### HasEndDate
-
-`func (o *InfraBillingSummaryDto) HasEndDate() bool`
-
-HasEndDate returns a boolean if a field has been set.
-
-### SetEndDateNil
-
-`func (o *InfraBillingSummaryDto) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *InfraBillingSummaryDto) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
+UnsetIntervals ensures that no value is present for Intervals, not even an explicit nil
 ### GetTotalPrice
 
 `func (o *InfraBillingSummaryDto) GetTotalPrice() float64`

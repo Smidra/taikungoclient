@@ -14299,6 +14299,77 @@
         }
       }
     },
+    "/api/v1/cronjob/cancel-expired-subscriptions": {
+      "post": {
+        "tags": [
+          "Cron Job Service"
+        ],
+        "summary": "Cancel expired subscriptions",
+        "operationId": "cronjob-cancel-expired-subscriptions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelExpiredSubscriptionsCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/cronjob/alerts": {
       "post": {
         "tags": [
@@ -19603,31 +19674,22 @@
       }
     },
     "/api/v1/infra-billing-summary/list": {
-      "get": {
+      "post": {
         "tags": [
           "Infra billing summary"
         ],
         "summary": "Retrieve infra billing info",
         "operationId": "infra-billing-summary-list",
-        "parameters": [
-          {
-            "name": "OrganizationId",
-            "in": "query",
-            "style": "form",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InfraBillingListCommand"
+              }
             }
           },
-          {
-            "name": "Filter",
-            "in": "query",
-            "style": "form",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -32465,6 +32527,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "IsInfra",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -32475,7 +32545,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CommonDropdownDto"
+                    "$ref": "#/components/schemas/OrganizationDropdownDto"
                   }
                 }
               }
@@ -56307,6 +56377,9 @@
           },
           "isDefault": {
             "type": "boolean"
+          },
+          "isInfra": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -56370,6 +56443,9 @@
             "nullable": true
           },
           "isDefault": {
+            "type": "boolean"
+          },
+          "isInfra": {
             "type": "boolean"
           }
         },
@@ -57315,6 +57391,10 @@
         },
         "additionalProperties": false
       },
+      "CancelExpiredSubscriptionsCommand": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "CardInformationDto": {
         "type": "object",
         "properties": {
@@ -57652,10 +57732,6 @@
       "ChatCompletionsCommand": {
         "type": "object",
         "properties": {
-          "model": {
-            "type": "string",
-            "nullable": true
-          },
           "messages": {
             "nullable": true
           }
@@ -60010,6 +60086,15 @@
         },
         "additionalProperties": false
       },
+      "DateFilter": {
+        "enum": [
+          "Monthly",
+          "ThreeMonthly",
+          "SixMonthly",
+          "Yearly"
+        ],
+        "type": "string"
+      },
       "DateInterval": {
         "type": "object",
         "properties": {
@@ -62111,6 +62196,20 @@
         },
         "additionalProperties": false
       },
+      "InfraBillingListCommand": {
+        "type": "object",
+        "properties": {
+          "organizationId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "filter": {
+            "$ref": "#/components/schemas/DateFilter"
+          }
+        },
+        "additionalProperties": false
+      },
       "InfraBillingSummariesCreateCommand": {
         "type": "object",
         "properties": {
@@ -62187,6 +62286,9 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "yearly": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -62207,6 +62309,10 @@
             "format": "double"
           },
           "priceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearlyPriceId": {
             "type": "string",
             "nullable": true
           },
@@ -63471,6 +63577,14 @@
           "totalCount": {
             "type": "integer",
             "format": "int32"
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -65345,6 +65459,9 @@
           "isNew": {
             "type": "boolean"
           },
+          "trialEnded": {
+            "type": "boolean"
+          },
           "users": {
             "type": "integer",
             "format": "int32"
@@ -65387,6 +65504,23 @@
               "$ref": "#/components/schemas/PrometheusEntity"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrganizationDropdownDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isInfra": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -70216,6 +70350,32 @@
         },
         "additionalProperties": false
       },
+      "ServerUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ip": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "providerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "awsHostName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ServersForBillingDto": {
         "type": "object",
         "properties": {
@@ -72717,24 +72877,11 @@
       "UpdateServerCommand": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "ip": {
-            "type": "string",
-            "nullable": true
-          },
-          "instanceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "providerID": {
-            "type": "string",
-            "nullable": true
-          },
-          "awsHostName": {
-            "type": "string",
+          "servers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServerUpdateDto"
+            },
             "nullable": true
           }
         },
@@ -73150,6 +73297,9 @@
             "type": "boolean"
           },
           "demoModeEnabled": {
+            "type": "boolean"
+          },
+          "isNewOrganization": {
             "type": "boolean"
           },
           "lastLoginAt": {

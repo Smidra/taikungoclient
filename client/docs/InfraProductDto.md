@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
 **PriceId** | Pointer to **NullableString** |  | [optional] 
+**YearlyPriceId** | Pointer to **NullableString** |  | [optional] 
 **ProductId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -149,6 +150,41 @@ HasPriceId returns a boolean if a field has been set.
 `func (o *InfraProductDto) UnsetPriceId()`
 
 UnsetPriceId ensures that no value is present for PriceId, not even an explicit nil
+### GetYearlyPriceId
+
+`func (o *InfraProductDto) GetYearlyPriceId() string`
+
+GetYearlyPriceId returns the YearlyPriceId field if non-nil, zero value otherwise.
+
+### GetYearlyPriceIdOk
+
+`func (o *InfraProductDto) GetYearlyPriceIdOk() (*string, bool)`
+
+GetYearlyPriceIdOk returns a tuple with the YearlyPriceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYearlyPriceId
+
+`func (o *InfraProductDto) SetYearlyPriceId(v string)`
+
+SetYearlyPriceId sets YearlyPriceId field to given value.
+
+### HasYearlyPriceId
+
+`func (o *InfraProductDto) HasYearlyPriceId() bool`
+
+HasYearlyPriceId returns a boolean if a field has been set.
+
+### SetYearlyPriceIdNil
+
+`func (o *InfraProductDto) SetYearlyPriceIdNil(b bool)`
+
+ SetYearlyPriceIdNil sets the value for YearlyPriceId to be an explicit nil
+
+### UnsetYearlyPriceId
+`func (o *InfraProductDto) UnsetYearlyPriceId()`
+
+UnsetYearlyPriceId ensures that no value is present for YearlyPriceId, not even an explicit nil
 ### GetProductId
 
 `func (o *InfraProductDto) GetProductId() string`

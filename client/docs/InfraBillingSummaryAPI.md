@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**InfraBillingSummaryCreate**](InfraBillingSummaryAPI.md#InfraBillingSummaryCreate) | **Post** /api/v1/infra-billing-summary/create | Add infra billing summary
-[**InfraBillingSummaryList**](InfraBillingSummaryAPI.md#InfraBillingSummaryList) | **Get** /api/v1/infra-billing-summary/list | Retrieve infra billing info
+[**InfraBillingSummaryList**](InfraBillingSummaryAPI.md#InfraBillingSummaryList) | **Post** /api/v1/infra-billing-summary/list | Retrieve infra billing info
 
 
 
@@ -24,7 +24,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## InfraBillingSummaryList
 
-> InfraBillingInfo InfraBillingSummaryList(ctx).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).Execute()
+> []InfraBillingSummaryDto InfraBillingSummaryList(ctx).InfraBillingListCommand(infraBillingListCommand).Execute()
 
 Retrieve infra billing info
 
@@ -86,26 +86,20 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
-    sortBy := "sortBy_example" // string |  (optional)
-    sortDirection := "sortDirection_example" // string |  (optional)
-    startDate := "startDate_example" // string |  (optional)
-    endDate := "endDate_example" // string |  (optional)
-    organizationId := int32(56) // int32 |  (optional)
+    infraBillingListCommand := *openapiclient.NewInfraBillingListCommand() // InfraBillingListCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InfraBillingSummaryAPI.InfraBillingSummaryList(context.Background()).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).Execute()
+    resp, r, err := apiClient.InfraBillingSummaryAPI.InfraBillingSummaryList(context.Background()).InfraBillingListCommand(infraBillingListCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InfraBillingSummaryAPI.InfraBillingSummaryList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InfraBillingSummaryList`: InfraBillingInfo
+    // response from `InfraBillingSummaryList`: []InfraBillingSummaryDto
     fmt.Fprintf(os.Stdout, "Response from `InfraBillingSummaryAPI.InfraBillingSummaryList`: %v\n", resp)
 }
 ```
@@ -121,17 +115,11 @@ Other parameters are passed through a pointer to a apiInfraBillingSummaryListReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int32** |  | 
- **offset** | **int32** |  | 
- **sortBy** | **string** |  | 
- **sortDirection** | **string** |  | 
- **startDate** | **string** |  | 
- **endDate** | **string** |  | 
- **organizationId** | **int32** |  | 
+ **infraBillingListCommand** | [**InfraBillingListCommand**](InfraBillingListCommand.md) |  | 
 
 ### Return type
 
-[**InfraBillingInfo**](InfraBillingInfo.md)
+[**[]InfraBillingSummaryDto**](InfraBillingSummaryDto.md)
 
 ### Authorization
 
@@ -139,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

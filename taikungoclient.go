@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	taikuncore "github.com/Smidra/taikungoclient/client"             // Main Taikun Web API
-	taikunshowback "github.com/Smidra/taikungoclient/showbackclient" // API for Taikun showback service
+	taikuncore "github.com/itera-io/taikungoclient/client"             // Main Taikun Web API
+	taikunshowback "github.com/itera-io/taikungoclient/showbackclient" // API for Taikun showback service
 )
 
 // Enviroment variables which can be read from the command line evn.

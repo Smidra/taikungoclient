@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CronjobAutoUpgradeProjects**](CronJobServiceAPI.md#CronjobAutoUpgradeProjects) | **Post** /api/v1/cronjob/auto-upgrade-projects | Upgrade projects that auto-upgrade option enabled
 [**CronjobBlockOrganization**](CronJobServiceAPI.md#CronjobBlockOrganization) | **Post** /api/v1/cronjob/block-organization | Block organization
+[**CronjobCancelExpiredSubscriptions**](CronJobServiceAPI.md#CronjobCancelExpiredSubscriptions) | **Post** /api/v1/cronjob/cancel-expired-subscriptions | Cancel expired subscriptions
 [**CronjobCreateKeyPool**](CronJobServiceAPI.md#CronjobCreateKeyPool) | **Post** /api/v1/cronjob/create-key-pool | Create key pool
 [**CronjobDeleteExpiredAlerts**](CronJobServiceAPI.md#CronjobDeleteExpiredAlerts) | **Post** /api/v1/cronjob/alerts | Delete expired alerts
 [**CronjobDeleteExpiredEvents**](CronJobServiceAPI.md#CronjobDeleteExpiredEvents) | **Post** /api/v1/cronjob/events | Delete expired events
@@ -55,7 +56,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -117,7 +118,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -164,6 +165,68 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CronjobCancelExpiredSubscriptions
+
+> CronjobCancelExpiredSubscriptions(ctx).Body(body).Execute()
+
+Cancel expired subscriptions
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/itera-io/taikungoclient/client"
+)
+
+func main() {
+    body := map[string]interface{}{ ... } // map[string]interface{} | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.CronJobServiceAPI.CronjobCancelExpiredSubscriptions(context.Background()).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CronJobServiceAPI.CronjobCancelExpiredSubscriptions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCronjobCancelExpiredSubscriptionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CronjobCreateKeyPool
 
 > CronjobCreateKeyPool(ctx).Body(body).Execute()
@@ -179,7 +242,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -241,7 +304,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -303,7 +366,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -365,7 +428,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -427,7 +490,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -489,7 +552,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -551,7 +614,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -613,7 +676,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -675,7 +738,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -737,7 +800,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -799,7 +862,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -861,7 +924,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -923,7 +986,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -985,7 +1048,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1047,7 +1110,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1109,7 +1172,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1171,7 +1234,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1233,7 +1296,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1295,7 +1358,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1357,7 +1420,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1419,7 +1482,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1481,7 +1544,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1543,7 +1606,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1605,7 +1668,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1667,7 +1730,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1729,7 +1792,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1791,7 +1854,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1853,7 +1916,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1915,7 +1978,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -1977,7 +2040,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
@@ -2039,7 +2102,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {

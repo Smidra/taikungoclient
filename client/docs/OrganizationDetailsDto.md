@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **IsLocked** | Pointer to **bool** |  | [optional] 
 **IsReadOnly** | Pointer to **bool** |  | [optional] 
 **IsNew** | Pointer to **bool** |  | [optional] 
+**TrialEnded** | Pointer to **bool** |  | [optional] 
 **Users** | Pointer to **int32** |  | [optional] 
 **Projects** | Pointer to **int32** |  | [optional] 
 **Servers** | Pointer to **int32** |  | [optional] 
@@ -487,6 +488,31 @@ SetIsNew sets IsNew field to given value.
 `func (o *OrganizationDetailsDto) HasIsNew() bool`
 
 HasIsNew returns a boolean if a field has been set.
+
+### GetTrialEnded
+
+`func (o *OrganizationDetailsDto) GetTrialEnded() bool`
+
+GetTrialEnded returns the TrialEnded field if non-nil, zero value otherwise.
+
+### GetTrialEndedOk
+
+`func (o *OrganizationDetailsDto) GetTrialEndedOk() (*bool, bool)`
+
+GetTrialEndedOk returns a tuple with the TrialEnded field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTrialEnded
+
+`func (o *OrganizationDetailsDto) SetTrialEnded(v bool)`
+
+SetTrialEnded sets TrialEnded field to given value.
+
+### HasTrialEnded
+
+`func (o *OrganizationDetailsDto) HasTrialEnded() bool`
+
+HasTrialEnded returns a boolean if a field has been set.
 
 ### GetUsers
 

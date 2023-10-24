@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Model** | Pointer to **NullableString** |  | [optional] 
 **Messages** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
@@ -26,41 +25,6 @@ NewChatCompletionsCommandWithDefaults instantiates a new ChatCompletionsCommand 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetModel
-
-`func (o *ChatCompletionsCommand) GetModel() string`
-
-GetModel returns the Model field if non-nil, zero value otherwise.
-
-### GetModelOk
-
-`func (o *ChatCompletionsCommand) GetModelOk() (*string, bool)`
-
-GetModelOk returns a tuple with the Model field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetModel
-
-`func (o *ChatCompletionsCommand) SetModel(v string)`
-
-SetModel sets Model field to given value.
-
-### HasModel
-
-`func (o *ChatCompletionsCommand) HasModel() bool`
-
-HasModel returns a boolean if a field has been set.
-
-### SetModelNil
-
-`func (o *ChatCompletionsCommand) SetModelNil(b bool)`
-
- SetModelNil sets the value for Model to be an explicit nil
-
-### UnsetModel
-`func (o *ChatCompletionsCommand) UnsetModel()`
-
-UnsetModel ensures that no value is present for Model, not even an explicit nil
 ### GetMessages
 
 `func (o *ChatCompletionsCommand) GetMessages() interface{}`

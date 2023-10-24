@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | Pointer to [**[]BackupStorageLocationDto**](BackupStorageLocationDto.md) |  | [optional] 
 **TotalCount** | Pointer to **int32** |  | [optional] 
+**Projects** | Pointer to **[]int32** |  | [optional] 
 
 ## Methods
 
@@ -86,6 +87,41 @@ SetTotalCount sets TotalCount field to given value.
 
 HasTotalCount returns a boolean if a field has been set.
 
+### GetProjects
+
+`func (o *ListAllBackupStorageLocations) GetProjects() []int32`
+
+GetProjects returns the Projects field if non-nil, zero value otherwise.
+
+### GetProjectsOk
+
+`func (o *ListAllBackupStorageLocations) GetProjectsOk() (*[]int32, bool)`
+
+GetProjectsOk returns a tuple with the Projects field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjects
+
+`func (o *ListAllBackupStorageLocations) SetProjects(v []int32)`
+
+SetProjects sets Projects field to given value.
+
+### HasProjects
+
+`func (o *ListAllBackupStorageLocations) HasProjects() bool`
+
+HasProjects returns a boolean if a field has been set.
+
+### SetProjectsNil
+
+`func (o *ListAllBackupStorageLocations) SetProjectsNil(b bool)`
+
+ SetProjectsNil sets the value for Projects to be an explicit nil
+
+### UnsetProjects
+`func (o *ListAllBackupStorageLocations) UnsetProjects()`
+
+UnsetProjects ensures that no value is present for Projects, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

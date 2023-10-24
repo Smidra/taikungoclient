@@ -11,7 +11,7 @@ package taikuncore
 
 import (
 	"context"
-	openapiclient "github.com/Smidra/taikungoclient/client"
+	openapiclient "github.com/itera-io/taikungoclient/client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

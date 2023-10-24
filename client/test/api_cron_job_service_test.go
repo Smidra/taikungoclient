@@ -11,7 +11,7 @@ package taikuncore
 
 import (
 	"context"
-	openapiclient "github.com/Smidra/taikungoclient/client"
+	openapiclient "github.com/itera-io/taikungoclient/client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -38,6 +38,17 @@ func Test_taikuncore_CronJobServiceAPIService(t *testing.T) {
 		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.CronJobServiceAPI.CronjobBlockOrganization(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CronJobServiceAPIService CronjobCancelExpiredSubscriptions", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.CronJobServiceAPI.CronjobCancelExpiredSubscriptions(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -1,4 +1,4 @@
-module github.com/Smidra/taikungoclient
+module github.com/itera-io/taikungoclient
 
 go 1.18
 

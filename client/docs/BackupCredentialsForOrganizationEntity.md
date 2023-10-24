@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **BackupCredentialId** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **IsDefault** | Pointer to **bool** |  | [optional] 
+**IsInfra** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -111,6 +112,31 @@ SetIsDefault sets IsDefault field to given value.
 `func (o *BackupCredentialsForOrganizationEntity) HasIsDefault() bool`
 
 HasIsDefault returns a boolean if a field has been set.
+
+### GetIsInfra
+
+`func (o *BackupCredentialsForOrganizationEntity) GetIsInfra() bool`
+
+GetIsInfra returns the IsInfra field if non-nil, zero value otherwise.
+
+### GetIsInfraOk
+
+`func (o *BackupCredentialsForOrganizationEntity) GetIsInfraOk() (*bool, bool)`
+
+GetIsInfraOk returns a tuple with the IsInfra field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsInfra
+
+`func (o *BackupCredentialsForOrganizationEntity) SetIsInfra(v bool)`
+
+SetIsInfra sets IsInfra field to given value.
+
+### HasIsInfra
+
+`func (o *BackupCredentialsForOrganizationEntity) HasIsInfra() bool`
+
+HasIsInfra returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

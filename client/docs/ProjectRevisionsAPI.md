@@ -23,7 +23,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Smidra/taikungoclient/client"
+    openapiclient "github.com/itera-io/taikungoclient/client"
 )
 
 func main() {
